@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, session
 import pickle
 from model import myFunc
+from waitress import serve
 
 app = Flask(__name__)
 app.secret_key = 'BAD_SECRET_KEY'
@@ -67,4 +68,4 @@ def scores():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    serve(app)

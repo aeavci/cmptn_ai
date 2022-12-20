@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='dist/css/output.css')}}"
+    />
+  </head>
+  <body>
+    {% if tracker == 1 %}
+    <div>
+      <label class="text-xl">Correlation Map Für Diamond Dataset</label>
+      <img
+        class="max-w-full h-auto"
+        src="../static/save_as_a_png.png"
+        alt="image description"
+      />
+      <button
+        type="button"
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        onclick="location.href='feature';"
+      >
+        Weiter
+      </button>
+    </div>
+    {% elif tracker == 2 %}
+    <div>
+      <label class="text-xl"
+        >Correlation Map Für Car Price Prediction Dataset</label
+      >
+      <img
+        class="max-w-full h-auto"
+        src="../static/carpricecorr.png"
+        alt="image description"
+      />
+      <button
+        type="button"
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        onclick="location.href='feature';"
+      >
+        Weiter
+      </button>
+    </div>
+    {% else %}
+    <div class="justify-center">
+      <label class="text-xl">Correlation Map Für Abalone Dataset</label>
+      <img
+        class="max-w-full h-auto"
+        src="../static/abalone.png"
+        alt="image description"
+      />
+      <div class="relative">
+        <button
+          type="button"
+          class="right-0 text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          onclick="location.href='feature';"
+        >
+          Weiter
+        </button>
+      </div>
+    </div>
+    {% endif %}
+    <script src="https://unpkg.com/flowbite@1.5.5/dist/flowbite.js"></script>
+  </body>
+</html>

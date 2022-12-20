@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flowbite Flask</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='dist/css/output.css')}}"
+    />
+  </head>
+  <body>
+    <nav
+      class=" mb-4 bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900"
+    >
+      <div
+        class="container flex flex-wrap items-center justify-between mx-auto"
+      >
+        <a href="https://flowbite.com/" class="flex items-center">
+          <img
+            src="../static/logoo.png"
+            class="h-6 mr-3 sm:h-9"
+            alt="EINFACH ML LOGO"
+          />
+        </a>
+        <button
+          data-collapse-toggle="navbar-default"
+          type="button"
+          class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="navbar-default"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="w-6 h-6"
+            aria-hidden="true"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+          <ul
+            class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+          >
+            <li>
+              <a
+                href="#"
+                class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+                aria-current="page"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >Services</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >Pricing</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <form action="\visualize" method="post">
+      <div class="mb-6">
+        <label
+          for="Source"
+          class="block mb-4 text-sm font-medium text-gray-900 dark:text-white"
+          >Wählen Sie Ihren Datensatz aus</label
+        >
+        <select
+          name="Source"
+          id="Source"
+          required="required"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        >
+          <option>Diamond Dataset</option>
+          <option>Car Price Prediction Dataset</option>
+          <option>Abalone Age Prediction Dataset</option>
+        </select>
+      </div>
+      <button
+        type="submit"
+        class="mb-20 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      >
+        SENDEN
+      </button>
+    </form>
+
+    <div
+      id="accordion-color"
+      data-accordion="collapse"
+      data-active-classes="mt-5 bg-blue-100 dark:bg-gray-800 text-blue-600 dark:text-white"
+    >
+      <h2 id="accordion-color-heading-1">
+        <button
+          type="button"
+          class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-800 dark:border-gray-700 dark:text-gray-400 hover:bg-blue-100 dark:hover:bg-gray-800"
+          data-accordion-target="#accordion-color-body-1"
+          aria-expanded="false"
+          aria-controls="accordion-color-body-1"
+        >
+          <span>Diamond Dataset</span>
+          <svg
+            data-accordion-icon
+            class="w-6 h-6 rotate-180 shrink-0"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
+      </h2>
+      <div
+        id="accordion-color-body-1"
+        class="hidden"
+        aria-labelledby="accordion-color-heading-1"
+      >
+        <div
+          class="p-5 font-light border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900"
+        >
+          <p class="mb-2 text-gray-500 dark:text-gray-400">
+            This classic dataset contains the prices and other attributes of
+            almost 54,000 diamonds. There are 10 attributes included in the
+            dataset including the target ie. price. <br>
+            <p class="mb-2 text-gray-500 dark:text-gray-400">
+            carat (0.2-5.01): The carat
+            is the diamond’s physical weight measured in metric carats. One
+            carat equals 0.20 gram and is subdivided into 100 points.<br><br>
+            cut (Fair,Good, Very Good, Premium, Ideal): The quality of the cut. The more precise the diamond is cut, the more captivating the diamond is to
+            the eye thus of high grade.</p> 
+            <p class="mb-2 text-gray-500 dark:text-gray-400">
+            color (from J (worst) to D (best)): The
+            colour of gem-quality diamonds occurs in many hues. In the range
+            from colourless to light yellow or light brown. Colourless diamonds
+            are the rarest. Other natural colours (blue, red, pink for example)
+            are known as "fancy,” and their colour grading is different than
+            from white colorless diamonds.<br><br> clarity (I1 (worst), SI2, SI1, VS2,
+            VS1, VVS2, VVS1, IF (best)): Diamonds can have internal
+            characteristics known as inclusions or external characteristics
+            known as blemishes. Diamonds without inclusions or blemishes are
+            rare; however, most characteristics can only be seen with
+            magnification.<br> <br></p> <p class="mb-2 text-gray-500 dark:text-gray-400">depth (43-79): It is the total depth percentage which
+            equals to z / mean(x, y) = 2 * z / (x + y). The depth of the diamond
+            is its height (in millimetres) measured from the culet (bottom tip)
+            to the table (flat, top surface) as referred in the labelled diagram
+            above. table (43-95): It is the width of the top of the diamond
+            relative to widest point. It gives diamond stunning fire and
+            brilliance by reflecting lights to all directions which when seen by
+            an observer, seems lustrous.<br> <br></p> <p class="mb-2 text-gray-500 dark:text-gray-400">price ($$326 - $18826): It is the price
+            of the diamond in US dollars. It is our very target column in the
+            dataset.<br><br> x (0 - 10.74): Length of the diamond (in mm) <br> y (0 - 58.9):
+            Width of the diamond (in mm) <br> z (0 - 31.8): Depth of the diamond (in
+            mm) </p>
+          </p>
+          <p class="text-gray-500 dark:text-gray-400">
+            Check out the
+            <a
+              href="https://4cs.gia.edu/en-us/blog/diamond-anatomy-explained/"
+              class="text-blue-600 dark:text-blue-500 hover:underline"
+              >GIA Website</a
+            >
+            if you want to learn more.
+          </p>
+        </div>
+      </div>
+      <h2 id="accordion-color-heading-2">
+        <button
+          type="button"
+          class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-800 dark:border-gray-700 dark:text-gray-400 hover:bg-blue-100 dark:hover:bg-gray-800"
+          data-accordion-target="#accordion-color-body-2"
+          aria-expanded="false"
+          aria-controls="accordion-color-body-2"
+        >
+          <span>Abalone Age Prediction Dataset</span>
+          <svg
+            data-accordion-icon
+            class="w-6 h-6 shrink-0"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
+      </h2>
+      <div
+        id="accordion-color-body-2"
+        class="hidden"
+        aria-labelledby="accordion-color-heading-2"
+      >
+        <div
+          class="p-5 font-light border border-b-0 border-gray-200 dark:border-gray-700"
+        >
+          <p class="mb-2 text-gray-500 dark:text-gray-400">
+            Variables are self-explanatory.
+          </p>
+          <p class="text-gray-500 dark:text-gray-400">
+            Check out the
+            <a
+              href="https://archive.ics.uci.edu/ml/datasets/abalone"
+              class="text-blue-600 dark:text-blue-500 hover:underline"
+              >UCI Website</a
+            >
+            if you want to learn more.
+          </p>
+        </div>
+      </div>
+      <h2 id="accordion-color-heading-3">
+        <button
+          type="button"
+          class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-gray-200 focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-800 dark:border-gray-700 dark:text-gray-400 hover:bg-blue-100 dark:hover:bg-gray-800"
+          data-accordion-target="#accordion-color-body-3"
+          aria-expanded="false"
+          aria-controls="accordion-color-body-3"
+        >
+          <span
+            >Car Price Prediction Dataset</span
+          >
+          <svg
+            data-accordion-icon
+            class="w-6 h-6 shrink-0"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
+      </h2>
+      <div
+        id="accordion-color-body-3"
+        class="hidden"
+        aria-labelledby="accordion-color-heading-3"
+      >
+        <div
+          class="p-5 font-light border border-t-0 border-gray-200 dark:border-gray-700"
+        >
+          <p class="mb-2 text-gray-500 dark:text-gray-400">
+           Variables are self-explanatory. 
+          </p>
+          <p class="text-gray-500 dark:text-gray-400">
+            Check out the
+            <a
+              href="https://www.kaggle.com/datasets/nehalbirla/vehicle-dataset-from-cardekho"
+              class="text-blue-600 dark:text-blue-500 hover:underline"
+              >Kaggle Dataset</a
+            >
+            if you want to learn more.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/flowbite@1.5.5/dist/flowbite.js"></script>
+  </body>
+</html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flowbite Flask</title>
+    <title>Feature Selection</title>
     <link
       rel="stylesheet"
       href="{{url_for('static',filename='dist/css/output.css')}}"
@@ -12,6 +12,15 @@
   </head>
   <body class="">
     <form action="\scores" method="post">
+      <div class="flex items-center mb-4">
+        <input checked id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+        <label for="checked-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Let features be choosen automatic</label>
+
+
+
+
+    </div>
+    
       <label
         for="Source"
         class="block mb-4 text-sm font-medium text-gray-900 dark:text-white"
@@ -23,17 +32,69 @@
         required="required"
         class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
       >
-        <option>Linear Regression</option>
-        <option>Lasso Regression</option>
-        <option>Decision Tree Regression</option>
-        <option>K-Nearest-Neighbour Regression</option>
+        <option value = "a">Linear Regression</option>
+        <option value = "b">Lasso Regression</option>
+        <option value = "c">Ridge Regression</option>
+        <option value = "d">Elastic Net Regression</option>
+        <option value = "e">Decision Tree Regression</option>
+        <option value = "f">KNN</option>
+        <option value = "g">Random Forest Regression</option>
+        <option value = "p">Support Vector Regression</option>
+        <option value = "h">Gradient Boosting Regression</option>
       </select>
-      <button
-        type="submit"
-        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-      >
-        SENDEN
-      </button>
+
+      <!--model parameters-->
+      <div class="flex flex-wrap -mx-3 mb-6">
+        <div class="w-full px-3">
+          <label
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            for="grid-first-name"
+            >Modelparameter(optional)</label
+          >
+          <input
+            class="appearance-none block w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:bg-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            id="grid-first-name"
+            type="text"
+            placeholder="Modelparameter"
+          />
+          <p class="text-gray-600 text-xs italic dark:text-gray-300"
+            >Write full name of the parameter and the value(e.g max_depth = 3) </p
+          >
+        </div>
+      </div>
+
+      <!--feature selection-->
+      <div class="flex flex-wrap -mx-3 mb-6">
+        <div class="w-full px-3">
+          <label
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            for="grid-first-name"
+            >Feature Selection(optional)</label
+          >
+          <input
+            class="appearance-none block w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:bg-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            id="grid-first-name"
+            type="text"
+            placeholder="Feature Selection"
+          />
+          <p class="text-gray-600 text-xs italic dark:text-gray-300"
+            >Write the name of the feature that you don't want to select. Be careful uppercase and lowercase letters(e.g carot != Carot)</p
+          >
+        </div>
+      </div>
+
+
+    
+
+        <!--button position right-->
+        <div class="flex items-center justify-end mt-4">
+          <button
+            type="submit"
+            class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          >
+            Submit
+          </button>
+        </div>
     </form>
     <script src="https://unpkg.com/flowbite@1.5.5/dist/flowbite.js"></script>
   </body>

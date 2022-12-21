@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Visualize</title>
     <link
       rel="stylesheet"
       href="{{url_for('static',filename='dist/css/output.css')}}"
@@ -19,12 +19,14 @@
         src="../static/save_as_a_png.png"
         alt="image description"
       />
+      
+    </div>
+    <div class="flex items-center justify-end mt-4">
       <button
         type="button"
-        class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        onclick="location.href='feature';"
+        class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
       >
-        Weiter
+        <a href="feature">Weiter</a>
       </button>
     </div>
     {% elif tracker == 2 %}
@@ -37,12 +39,13 @@
         src="../static/carpricecorr.png"
         alt="image description"
       />
+    </div>
+    <div class="flex items-center justify-end mt-4">
       <button
         type="button"
-        class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        onclick="location.href='feature';"
+        class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
       >
-        Weiter
+        <a href="feature">Weiter</a>
       </button>
     </div>
     {% else %}
@@ -53,17 +56,24 @@
         src="../static/abalone.png"
         alt="image description"
       />
-      <div class="relative">
-        <button
-          type="button"
-          class="right-0 text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          onclick="location.href='feature';"
-        >
-          Weiter
-        </button>
-      </div>
+
+     
+
+    </div>
+
+    <div class="flex items-center justify-end mt-4">
+      <button
+        type="button"
+        class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+      >
+        <a href="feature">Weiter</a>
+      </button>
     </div>
     {% endif %}
+
+
+
+
     <script src="https://unpkg.com/flowbite@1.5.5/dist/flowbite.js"></script>
   </body>
 </html>

@@ -11,6 +11,22 @@ from sklearn.tree import DecisionTreeRegressor
 from sklearn.linear_model import LinearRegression
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.linear_model import Lasso
+from sklearn.linear_model import Ridge
+from sklearn.linear_model import ElasticNet
+from sklearn.svm import SVR
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.ensemble import AdaBoostRegressor
+from sklearn.ensemble import BaggingRegressor
+from sklearn.ensemble import ExtraTreesRegressor
+from sklearn.metrics import mean_squared_error
+from sklearn.metrics import r2_score
+from sklearn.model_selection import cross_val_score
+from sklearn.model_selection import GridSearchCV
+from sklearn.model_selection import RandomizedSearchCV
+
+
+
 data = None
 label_data = None
 X = None
@@ -18,8 +34,11 @@ y = None
 
 
 def myFunc(z, t):
+    """Help users to predict the price of diamonds, cars and abalone.
+    """
     if(t == 1):
-        url = "C:/Users/user/cmptn_ai/data/diamonds.csv"
+        """Diamonds Dataset"""
+        url = "C:/Users/avci/cmptn_ai/cmptn_ai/data/diamonds.csv"
         data = pd.read_csv(url)
         data = data.drop(["Unnamed: 0"], axis=1)
         data = data.drop(data[data["x"] == 0].index)
@@ -46,7 +65,8 @@ def myFunc(z, t):
         y = label_data["price"]
         # plt.savefig('save_as_a_png.png')
     elif(t == 2):
-        url = "C:/Users/user/cmptn_ai/data/car data.csv"
+        """Car Price Prediction Dataset"""
+        url = "C:/Users/avci/cmptn_ai/cmptn_ai/data/car data.csv"
         data = pd.read_csv(url)
         data.drop(labels='Car_Name', axis=1, inplace=True)
         correlations = data.corr()
@@ -58,7 +78,8 @@ def myFunc(z, t):
         X = data.drop(["Selling_Price"], axis=1)
         y = data["Selling_Price"]
     else:
-        url = "C:/Users/user/cmptn_ai/data/abalone.csv"
+        """Abalone Dataset"""
+        url = "C:/Users/avci/cmptn_ai/cmptn_ai/data/abalone.csv"
         data = pd.read_csv(url)
         data['age'] = data['Rings']+1.5
         data.drop('Rings', axis=1, inplace=True)
@@ -69,18 +90,17 @@ def myFunc(z, t):
         data = pd.get_dummies(data, drop_first=True)
         X = data.drop("age", axis=1)
         y = data["age"]
-    X_train, X_test, y_train, y_test = train_test_split(
+        X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=0.25, random_state=7)
     if(z == 1):
-        regr = LinearRegression()
-        regr.fit(X_train, y_train)
-        y_pred = regr.predict(X_test)
-        print("accuracy: " + str(regr.score(X_test, y_test)*100) + "%")
-        m = str(regr.score(X_test, y_test)*100) + "%"
-        # open a file, where you ant to store the data
+        lin_reg = LinearRegression()
+        lin_reg.fit(X_train, y_train)
+        y_pred = lin_reg.predict(X_test)
+        print("accuracy: " + str(lin_reg.score(X_test, y_test)*100) + "%")
+        m = str(lin_reg.score(X_test, y_test)*100) + "%"
         file = open('comp.pkl', 'wb')
         # dump information to that file
-        pickle.dump(regr, file)
+        pickle.dump(lin_reg, file)
         return m
     elif(z == 2):
         dec_tree_regressor = DecisionTreeRegressor()
@@ -102,6 +122,57 @@ def myFunc(z, t):
         # dump information to that file
         pickle.dump(knnregressor, file)
         return m
+    elif(z == 4):
+        rfr = RandomForestRegressor()
+        rfr.fit(X_train, y_train)
+        rfr_pred = rfr.predict(X_test)
+        print("accuracy: " + str(rfr.score(X_test, y_test)*100) + "%")
+        m = str(rfr.score(X_test, y_test)*100) + "%"
+        file = open('comp.pkl', 'wb')
+        # dump information to that file
+        pickle.dump(rfr, file)
+        return m
+    elif(z == 5):
+        gbr = GradientBoostingRegressor()
+        gbr.fit(X_train, y_train)
+        gbr_pred = gbr.predict(X_test)
+        print("accuracy: " + str(gbr.score(X_test, y_test)*100) + "%")
+        m = str(gbr.score(X_test, y_test)*100) + "%"
+        file = open('comp.pkl', 'wb')
+        # dump information to that file
+        pickle.dump(gbr, file)
+        return m
+    elif(z == 6):
+        svr = SVR()
+        svr.fit(X_train, y_train)
+        svr_pred = svr.predict(X_test)
+        print("accuracy: " + str(svr.score(X_test, y_test)*100) + "%")
+        m = str(svr.score(X_test, y_test)*100) + "%"
+        file = open('comp.pkl', 'wb')
+        # dump information to that file
+        pickle.dump(svr, file)
+        return m
+    elif(z == 7):
+        ridge = Ridge()
+        ridge.fit(X_train, y_train)
+        ridge_pred = ridge.predict(X_test)
+        print("accuracy: " + str(ridge.score(X_test, y_test)*100) + "%")
+        m = str(ridge.score(X_test, y_test)*100) + "%"
+        file = open('comp.pkl', 'wb')
+        # dump information to that file
+        pickle.dump(ridge, file)
+        return m
+    elif(z==8):
+        elasticnet = ElasticNet()
+        elasticnet.fit(X_train, y_train)
+        elasticnet_pred = elasticnet.predict(X_test)
+        print("accuracy: " + str(elasticnet.score(X_test, y_test)*100) + "%")
+        m = str(elasticnet.score(X_test, y_test)*100) + "%"
+        file = open('comp.pkl', 'wb')
+        # dump information to that file
+        pickle.dump(elasticnet, file)
+        return m
+    
     else:
         las_reg = Lasso()
         las_reg.fit(X_train, y_train)

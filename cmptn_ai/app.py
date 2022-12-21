@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, session
 import pickle
 from model import myFunc
-from waitress import serve
+
 
 app = Flask(__name__)
 app.secret_key = 'BAD_SECRET_KEY'
@@ -54,12 +54,25 @@ def scores():
         mla = request.form["mla"]
         if(mla == 'Linear Regression'):
             x = myFunc(1, y)
-        elif(mla == 'Lasso Regression'):
-            x = myFunc(4, y)
+        elif(mla == "Ridge Regression"):
+            x = myFunc(7, y)
+        elif(mla == "Elastic Net Regression"):
+            x = myFunc(8, y)
         elif(mla == 'Decision Tree Regression'):
             x = myFunc(2, y)
-        else:
+        elif(mla == "KNN"):
             x = myFunc(3, y)
+        elif(mla == "Random Forest Regression"):
+            x = myFunc(4, y)
+        elif(mla == "Gradient Boosting Regression"):
+            x = myFunc(5, y)
+        elif(mla == "Support Vector Regression"):
+            x = myFunc(6, y)
+        else:
+            x = myFunc(9, y)
+        
+        
+      
         return render_template('scores.html', prediction_text="Ihr Genauigkeitswert ist: {}".format(x))
     elif request.method == 'GET':
         return redirect('/')
@@ -68,4 +81,4 @@ def scores():
 
 
 if __name__ == '__main__':
-    serve(app)
+    app.run(debug=True)

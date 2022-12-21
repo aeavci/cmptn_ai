@@ -70,10 +70,19 @@ def scores():
             x = myFunc(6, y)
         else:
             x = myFunc(9, y)
+        # make an object named users consisting of 5 random users and their random scores
+        users = [{'name': 'John', 'score': 97.15}, {'name': 'Mary', 'score': 88.71}, {'name': 'Bob', 'score': 73.22},
+                 {'name': 'Jane', 'score': 66.15}, {'name': 'Joe', 'score': 55.71}]
+    
+
+
+
         
+
+
         
       
-        return render_template('scores.html', prediction_text="Ihr Genauigkeitswert ist: {}".format(x))
+        return render_template('scores.html', prediction_text="Ihr Genauigkeitswert ist: {}".format(x), users=users)
     elif request.method == 'GET':
         return redirect('/')
     else:
